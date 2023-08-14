@@ -12,7 +12,7 @@ function App() {
     <Routes>
       <Route
         path="/"
-        element={loggedIn ? <Core /> : <Navigate to="/login" replace />}
+        element={loggedIn ? <Core /> : <Navigate to="/sign-up" replace />}
       ></Route>
       <Route path="/sign-up" element={<Register />}></Route>
       <Route path="/sign-in" element={<Login />}></Route>

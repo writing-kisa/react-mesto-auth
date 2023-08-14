@@ -1,0 +1,7 @@
+.authform {
+  display: flex;
+  flex-direction: column;
+  width: 358px;
+  margin-left: auto;
+  margin-right: auto;
+}

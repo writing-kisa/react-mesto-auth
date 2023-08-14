@@ -1,0 +1,9 @@
+.authform__signin {
+  display: flex;
+  flex-direction: row;
+  font-size: 14px;
+  font-weight: 400;
+  color: #FFFFFF;
+  justify-content: center;
+  column-gap: 6px;
+}
