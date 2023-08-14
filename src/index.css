@@ -54,6 +54,7 @@
 @import url(./blocks/authform/__title/authform__title.css);
 @import url(./blocks/authform/__form/authform__form.css);
 @import url(./blocks/authform/__text/authform__text.css);
+@import url(./blocks/authform/__link/authform__link.css);
 @import url(./blocks/authform/__signin/authform__signin.css);
 @import url(./blocks/authform/__login-text/authform__login-text.css);
 @import url(./blocks/authform/__login-link/authform__login-link.css);

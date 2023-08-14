@@ -8,7 +8,7 @@ function AuthForm(props) {
       <form className="authform__form">
         <input className="authform__text" placeholder="Email"></input>
         <input className="authform__text" placeholder="Пароль"></input>
-        <button type="submit" className="register__link">
+        <button type="submit" className="authform__link">
           Зарегистрироваться
         </button>
       </form>

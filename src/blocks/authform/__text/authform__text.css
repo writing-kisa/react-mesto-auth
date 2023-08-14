@@ -1,0 +1,12 @@
+.authform__text {
+  margin-bottom: 30px;
+  width: 358px;
+  font-size: 14px;
+  font-weight: 400;
+  color: white;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid rgba(204, 204, 204, 0.7);
+  background-color: transparent;
+  padding-bottom: 11px;
+}
