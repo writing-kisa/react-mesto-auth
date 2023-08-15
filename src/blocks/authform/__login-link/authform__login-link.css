@@ -3,3 +3,7 @@
   color: #FFFFFF;
   cursor: pointer;
 }
+
+.authform__login-link:hover {
+  opacity: 0.8;
+}

@@ -2,9 +2,11 @@
   margin-top: 45px;
   padding-bottom: 41px;
   margin-bottom: 40px;
-  display: block;
+  display: flex;
   width: 100%;
   border-bottom: 1px solid rgb(84, 84, 84, .7);
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 @media (max-width: 920px) {

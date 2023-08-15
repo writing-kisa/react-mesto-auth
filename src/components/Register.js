@@ -6,8 +6,7 @@ import { Link } from "react-router-dom";
 function Register(props) {
   return (
     <>
-      <Header />
-      {/* <Header buttonText="Вход" /> */}
+      <Header linkText="Войти" path="sign-in" />
       <AuthForm
         name="register"
         title="Регистрация"
