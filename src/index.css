@@ -60,6 +60,14 @@
 @import url(./blocks/authform/__login-text/authform__login-text.css);
 @import url(./blocks/authform/__login-link/authform__login-link.css);
 
+@import url(./blocks/logstatus/logstatus.css);
+@import url(./blocks/logstatus/__container/logstatus__container.css);
+@import url(./blocks/logstatus/__image/logstatus__image.css);
+@import url(./blocks/logstatus/__title/logstatus__title.css);
+@import url(./blocks/logstatus/__close-button/logstatus__close-button.css);
+
+
+
 
 
 

@@ -1,0 +1,9 @@
+.logstatus__container {
+  background-color: white;
+  color: black;
+  width: 430px;
+  height: 330px;
+  border-radius: 10px;
+  align-self: center;
+  position: relative;
+}
