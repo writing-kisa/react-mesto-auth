@@ -5,7 +5,7 @@ import Header from "./Header";
 function Login(props) {
   return (
     <>
-      <Header linkText="Регистрация" path="sing-up" />
+      <Header linkText="Регистрация" path="sing-up"/>
       <AuthForm
         name="login"
         title="Вход"

@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import "../index.css";
-import { Routes, Route, Navigate } from "react-router-dom"; // импортирую Routes
+import { Routes, Route } from "react-router-dom"; // импортирую Routes
 import Core from "./Core";
 import Register from "./Register";
 import Login from "./Login";
+import ProtectedRouteElement from "./ProtectedRoute";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -12,7 +13,13 @@ function App() {
     <Routes>
       <Route
         path="/"
-        element={loggedIn ? <Core /> : <Navigate to="/sign-up" replace />}
+        element={
+          <ProtectedRouteElement
+            path="/"
+            loggedIn={loggedIn}
+            component={Core}
+          ></ProtectedRouteElement>
+        }
       ></Route>
       <Route path="/sign-up" element={<Register />}></Route>
       <Route path="/sign-in" element={<Login />}></Route>
@@ -21,3 +28,7 @@ function App() {
 }
 
 export default App;
+
+
+      
+
