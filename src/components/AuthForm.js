@@ -1,11 +1,14 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import * as UserAuth from "./UserAuth";
 // import CorrectAuth from "./CorrectAuth";
 // import ErrorAuth from "./ErrorAuth";
 
 function AuthForm(props) {
   const [userEmail, setUserEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
 
   function handleChange(e) {
     const { name, value } = e.target; //используем деструктуризацию объекта, чтобы упростить код
@@ -19,7 +22,9 @@ function AuthForm(props) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    //здесь должна быть функциональность сабмита
+    UserAuth.register(userEmail, password).then((res) => {
+      navigate("/sign-in", { replace: true }); //куда переплавляем? почему на логин?
+    });
   }
 
   return (
@@ -43,13 +48,17 @@ function AuthForm(props) {
             value={password}
             onChange={handleChange}
           ></input>
-          <button type="submit" className="authform__link">
+          <button
+            type="submit"
+            className="authform__link"
+            // onSubmit={handleSubmit}
+          >
             {props.buttonText}
           </button>
         </form>
         <div className="authform__signin">
           <p className="authform__login-text">{props.signIn}</p>
-          <Link to="login" className="authform__login-link">
+          <Link to="/sign-in" className="authform__login-link">
             {props.loginLink}
           </Link>
         </div>
