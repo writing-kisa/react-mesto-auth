@@ -1,9 +1,9 @@
-export const BASE_URL = "https://auth.nomoreparties.co";
+export const BASE_URL = "https://auth.nomoreparties.co/";
 
 //регистрация пользователей
 
 export const register = (email, password) => {
-         return fetch(`${BASE_URL}/sign-up`, {
+         return fetch(`${BASE_URL}signup`, {
            method: "POST",
            headers: {
              Accept: "application/json",
