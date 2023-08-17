@@ -5,27 +5,35 @@ import Header from "./Header";
 import * as UserAuth from "./UserAuth";
 
 function Register() {
-   const [userEmail, setUserEmail] = useState("");
-   const [password, setPassword] = useState("");
 
-   const navigate = useNavigate();
+  const [userEmail, setUserEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-   function handleChange(e) {
-     const { name, value } = e.target; //используем деструктуризацию объекта, чтобы упростить код
+  // console.log(userEmail); //данные приходят
+  // console.log(password); //данные приходят
 
-     if (name === "userEmail") {
-       setUserEmail(value);
-     } else if (name === "password") {
-       setPassword(value);
-     }
-   }
+  const navigate = useNavigate();
 
-   function handleSubmit(e) {
-     e.preventDefault();
-     UserAuth.register(userEmail, password).then((res) => {
-       navigate("/sign-in", { replace: true });
-     });
-   }
+  function handleChange(e) {
+    const { name, value } = e.target; 
+
+    if (name === "userEmail") {
+      setUserEmail(value);
+    } else if (name === "password") {
+      setPassword(value);
+    }
+  };
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    console.log("inside handleSubmit ====>", userEmail);
+    console.log("inside handleSubmit ====>", password);
+
+    UserAuth.register(userEmail, password).then((res) => {
+      navigate("/sign-in", { replace: true });
+    });
+  };
+
   return (
     <>
       <Header linkText="Войти" path="sign-in" />
@@ -37,10 +45,10 @@ function Register() {
         buttonTextId="login-link"
         signIn="Уже зарегистрированы?"
         loginLink="Войти"
-        onSubmit={handleSubmit}
-        handleChange={handleChange}
         userEmail={userEmail}
         password={password}
+        handleChange={handleChange}
+        onSubmit={handleSubmit}
       />
     </>
   );

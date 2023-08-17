@@ -5,11 +5,14 @@ import { Link } from "react-router-dom";
 
 function AuthForm(props) {
 
+  console.log(props.userEmail);
+    console.log(props.onSubmit);
+
   return (
     <>
       <div className="authform">
         <p className="authform__title">{props.title}</p>
-        <form className="authform__form" onSubmit={props.handleSubmit}>
+        <form className="authform__form" onSubmit={props.onSubmit}>
           <input
             name="userEmail"
             type="email"
