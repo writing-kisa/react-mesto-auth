@@ -8,6 +8,15 @@ import ProtectedRouteElement from "./ProtectedRoute";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
+  const [userData, setUserData] = useState({email: "", password: ""});
+  const [token, setToken] = useState(null);
+
+  const handleLogin = (userData) => {
+    setUserData(userData);
+    setToken(userData.jwt);
+    localStorage.setItem("jwt", userData.jwt);
+    setLoggedIn(true);
+  };
 
   return (
     <Routes>
@@ -21,14 +30,13 @@ function App() {
           ></ProtectedRouteElement>
         }
       ></Route>
-      <Route path="/sign-up" element={<Register />}></Route>
-      <Route path="/sign-in" element={<Login />}></Route>
+      <Route path="/signup" element={<Register />}></Route>
+      <Route
+        path="/signin"
+        element={<Login handleLogin={handleLogin} />}
+      ></Route>
     </Routes>
   );
 }
 
 export default App;
-
-
-      
-
