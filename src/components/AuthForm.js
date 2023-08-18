@@ -5,8 +5,9 @@ import { Link } from "react-router-dom";
 
 function AuthForm(props) {
 
-  console.log(props.userEmail);
-    console.log(props.onSubmit);
+  // console.log(props.userEmail);
+  // console.log(props.password);
+  // console.log(props.onSubmit);
 
   return (
     <>

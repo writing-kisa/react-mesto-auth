@@ -1,12 +1,10 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import AuthForm from "./AuthForm";
 import Header from "./Header";
 import * as UserAuth from "./UserAuth";
 import { useNavigate } from "react-router-dom";
 
-
 function Login(props) {
-
   const [userEmail, setUserEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -29,16 +27,21 @@ function Login(props) {
     e.preventDefault();
     // console.log("inside handleSubmit ====>", userEmail);
     // console.log("inside handleSubmit ====>", password);
-    UserAuth.authorize(userEmail, password).then((data) => {
-      console.log("inside UserAuth.authorize ===>", data); // undefined
-        // нужно проверить, есть ли у данных jwt
-      if (data.jwt) {   // jwt — не определен
-        setUserEmail('');
-        setPassword('');
-        props.handleLogin();
-        navigate('/', {replace: true})
-      }
-  })}
+    UserAuth.authorize(userEmail, password)
+      .then((data) => {
+        console.log("полученная дата при авторизации ===>", data); //сюда попадает токен {token: 'кодмногозначительный'}
+        console.log("data.jwt это====>", data.jwt); //undefined
+        if (data.jwt) {
+          setUserEmail("");
+          setPassword("");
+          props.handleLogin();
+          navigate("/", { replace: true });
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
 
   return (
     <>

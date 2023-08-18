@@ -31,10 +31,15 @@ export const authorize = (email, password) => {
   })
     .then((response) => response.json())
     .then((data) => {
-      if (data.user) {
+      // console.log("inside authorize ===>", data);
+      if (data) {
         localStorage.setItem("jwt", data.jwt);
         return data;
       }
+      return Promise.reject(new Error("Токен не найден"));
     })
-    .catch((err) => console.log(err));
+    .catch((err) => {
+      console.log(err);
+      throw err;
+    });
 };
