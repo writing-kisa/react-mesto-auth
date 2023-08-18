@@ -15,10 +15,6 @@ export const register = (email, password) => {
       }
       return response.json();
     })
-    .catch((err) => {
-      console.log(err);
-      throw err;
-    });
 };
 
 export const authorize = (email, password) => {
@@ -31,9 +27,6 @@ export const authorize = (email, password) => {
   })
     .then((response) => response.json())
     .then((data) => {
-      // console.log("inside authorize ===>", data);
-      // console.log("inside authorize ===>", data.token);
-
       if (data) {
         localStorage.setItem("jwt", data.token);
         return data;

@@ -5,7 +5,6 @@ import Header from "./Header";
 import * as UserAuth from "./UserAuth";
 
 function Register() {
-
   const [userEmail, setUserEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -15,24 +14,28 @@ function Register() {
   const navigate = useNavigate();
 
   function handleChange(e) {
-    const { name, value } = e.target; 
+    const { name, value } = e.target;
 
     if (name === "userEmail") {
       setUserEmail(value);
     } else if (name === "password") {
       setPassword(value);
     }
-  };
+  }
 
   function handleSubmit(e) {
     e.preventDefault();
     console.log("inside handleSubmit ====>", userEmail);
     console.log("inside handleSubmit ====>", password);
 
-    UserAuth.register(userEmail, password).then((res) => {
-      navigate("/sign-in", { replace: true });
-    });
-  };
+    UserAuth.register(userEmail, password)
+      .then((res) => {
+        navigate("/sign-in", { replace: true });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
 
   return (
     <>

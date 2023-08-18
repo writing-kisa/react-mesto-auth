@@ -136,44 +136,44 @@ function Core() {
   }
 
   return (
-          <CurrentUserContext.Provider value={currentUser}>
-            {/* //где value = значение контекста */}
-            <Header />
-            <Main
-              onEditName={handleEditProfileClick}
-              onAddPlace={handleAddPlaceClick}
-              onEditAvatar={handleEditAvatarClick}
-              onCardClick={handleCardClick}
-              onCardLike={handleCardLike}
-              onCardDelete={handleCardDelete}
-              cards={cards}
-            />
-            <Footer />
-            <EditProfilePopup
-              isOpen={isEditProfilePopupOpen}
-              onClose={closeAllPopups}
-              onUpdateUser={handleUpdateUser}
-            />
-            <EditAvatarPopup
-              isOpen={isEditAvatarPopupOpen}
-              onClose={closeAllPopups}
-              onUpdateAvatar={handleUpdateAvatar}
-            />
-            <AddPlacePopup
-              isOpen={isAddPlacePopupOpen}
-              onClose={closeAllPopups}
-              onAddPlace={handleAddPlaceSubmit}
-            />
-            <PopupWithForm
-              name="popup-before-delete"
-              title="Вы уверены?"
-              deleteButtonId="delete-card"
-              id=""
-              buttonText="Да"
-              buttonTextId="delete"
-            ></PopupWithForm>
-            <ImagePopup card={selectedCard} onClose={closeAllPopups} />
-          </CurrentUserContext.Provider>
+    <CurrentUserContext.Provider value={currentUser}>
+      {/* //где value = значение контекста */}
+      <Header linkText="Выйти" path="sign-up" userEmail="ms.victoryart@gmail.com" />
+      <Main
+        onEditName={handleEditProfileClick}
+        onAddPlace={handleAddPlaceClick}
+        onEditAvatar={handleEditAvatarClick}
+        onCardClick={handleCardClick}
+        onCardLike={handleCardLike}
+        onCardDelete={handleCardDelete}
+        cards={cards}
+      />
+      <Footer />
+      <EditProfilePopup
+        isOpen={isEditProfilePopupOpen}
+        onClose={closeAllPopups}
+        onUpdateUser={handleUpdateUser}
+      />
+      <EditAvatarPopup
+        isOpen={isEditAvatarPopupOpen}
+        onClose={closeAllPopups}
+        onUpdateAvatar={handleUpdateAvatar}
+      />
+      <AddPlacePopup
+        isOpen={isAddPlacePopupOpen}
+        onClose={closeAllPopups}
+        onAddPlace={handleAddPlaceSubmit}
+      />
+      <PopupWithForm
+        name="popup-before-delete"
+        title="Вы уверены?"
+        deleteButtonId="delete-card"
+        id=""
+        buttonText="Да"
+        buttonTextId="delete"
+      ></PopupWithForm>
+      <ImagePopup card={selectedCard} onClose={closeAllPopups} />
+    </CurrentUserContext.Provider>
   );
 }
 
