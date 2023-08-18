@@ -13,9 +13,9 @@ import { CurrentUserContext } from "../contexts/CurrentUserContext";
 
 function Core(props) {
 
-  // console.log("Props in ProtectedRouteElement ====>", props);
+  // console.log("Props in ProtectedRouteElement ====>", props.userEmail);
 
-  const { userEmail } = props.userEmail;
+  // const { userEmail } = props.userEmail;
 
   // console.log("userEmail внутри Core", userEmail);
 
@@ -144,11 +144,7 @@ function Core(props) {
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
-      <Header 
-      linkText="Выйти" 
-      path="sign-up" 
-      email={userEmail} 
-      />
+      <Header linkText="Выйти" path="sign-up" email={props.userEmail} />
       <Main
         onEditName={handleEditProfileClick}
         onAddPlace={handleAddPlaceClick}

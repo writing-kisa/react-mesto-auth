@@ -62,10 +62,11 @@ function App() {
           <ProtectedRouteElement
             path="/"
             loggedIn={loggedIn}
-            element={<Core userEmail={userEmail} />}
+            component={Core}
+            userEmail={userEmail}
           />
         }
-      ></Route>
+      />
       <Route path="/sign-up" element={<Register />}></Route>
       <Route
         path="/sign-in"
