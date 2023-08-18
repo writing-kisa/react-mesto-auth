@@ -13,6 +13,8 @@ function App() {
     setLoggedIn(true);
   };
 
+  // console.log(Core)
+
   return (
     <Routes>
       <Route
@@ -21,7 +23,7 @@ function App() {
           <ProtectedRouteElement
             path="/"
             loggedIn={loggedIn}
-            component={Core}
+            element={Core}
           ></ProtectedRouteElement>
         }
       ></Route>

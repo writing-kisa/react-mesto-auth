@@ -11,7 +11,7 @@ import EditAvatarPopup from "./EditAvatarPopup.js";
 import AddPlacePopup from "./AddPlacePopup.js";
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
 
-function Root() {
+function Core() {
   const [cards, setCards] = React.useState([]);
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(
     false
@@ -177,4 +177,4 @@ function Root() {
   );
 }
 
-export default Root;
+export default Core;
