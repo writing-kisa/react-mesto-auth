@@ -31,9 +31,11 @@ export const authorize = (email, password) => {
   })
     .then((response) => response.json())
     .then((data) => {
-      // console.log("inside authorize ===>", data);
+      console.log("inside authorize ===>", data);
+      console.log("inside authorize ===>", data.token);
+
       if (data) {
-        localStorage.setItem("jwt", data.jwt);
+        localStorage.setItem("jwt", data.token);
         return data;
       }
       return Promise.reject(new Error("Токен не найден"));

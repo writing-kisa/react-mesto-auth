@@ -30,8 +30,8 @@ function Login(props) {
     UserAuth.authorize(userEmail, password)
       .then((data) => {
         console.log("полученная дата при авторизации ===>", data); //сюда попадает токен {token: 'кодмногозначительный'}
-        console.log("data.jwt это====>", data.jwt); //undefined
-        if (data.jwt) {
+        console.log("data.token это====>", data.token); //undefined
+        if (data.token) {
           setUserEmail("");
           setPassword("");
           props.handleLogin();
