@@ -9,6 +9,10 @@ import ProtectedRouteElement from "./ProtectedRoute";
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
 
+  const handleLogin = () => {
+    setLoggedIn(true);
+  };
+
   return (
     <Routes>
       <Route
@@ -22,13 +26,12 @@ function App() {
         }
       ></Route>
       <Route path="/sign-up" element={<Register />}></Route>
-      <Route path="/sign-in" element={<Login />}></Route>
+      <Route
+        path="/sign-in"
+        element={<Login handleLogin={handleLogin} />}
+      ></Route>
     </Routes>
   );
 }
 
 export default App;
-
-
-      
-
