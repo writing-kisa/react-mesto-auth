@@ -31,17 +31,24 @@ export const authorize = (email, password) => {
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log("inside authorize ===>", data);
-      console.log("inside authorize ===>", data.token);
+      // console.log("inside authorize ===>", data);
+      // console.log("inside authorize ===>", data.token);
 
       if (data) {
         localStorage.setItem("jwt", data.token);
         return data;
       }
       return Promise.reject(new Error("Токен не найден"));
-    })
-    .catch((err) => {
-      console.log(err);
-      throw err;
     });
+};
+
+export const getContent = (token) => {
+  return fetch(`${BASE_URL}/users/me`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  })
+    .then((response) => response.json())
 };
