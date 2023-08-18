@@ -11,7 +11,14 @@ import EditAvatarPopup from "./EditAvatarPopup.js";
 import AddPlacePopup from "./AddPlacePopup.js";
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
 
-function Core() {
+function Core(props) {
+
+  // console.log("Props in ProtectedRouteElement ====>", props);
+
+  const { userEmail } = props.userEmail;
+
+  // console.log("userEmail внутри Core", userEmail);
+
   const [cards, setCards] = React.useState([]);
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(
     false
@@ -137,8 +144,11 @@ function Core() {
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
-      {/* //где value = значение контекста */}
-      <Header linkText="Выйти" path="sign-up" userEmail="ms.victoryart@gmail.com" />
+      <Header 
+      linkText="Выйти" 
+      path="sign-up" 
+      email={userEmail} 
+      />
       <Main
         onEditName={handleEditProfileClick}
         onAddPlace={handleAddPlaceClick}

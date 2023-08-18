@@ -16,31 +16,38 @@ function App() {
 
   const navigate = useNavigate();
 
+  const [userEmail, setUserEmail] = useState("");
+
   const tokenCheck = () => {
     // если у пользователя есть токен в localStorage,
     // эта функция проверит валидность токена
     const jwt = localStorage.getItem("jwt");
+
     if (jwt) {
-      console.log("jwt это ====>", jwt);
+      // console.log("jwt это ====>", jwt);
       // проверим токен
-      UserAuth.getContent(jwt).then((res) => {
-        if (res) {
-          //это для того, чтобы вытащить из айпи данные и вставить имейл затем в шапку профиля
-          //  const userData = {
-          //    id: res.id,
-          //    email: res.email,
-          //  };
+      UserAuth.getContent(jwt)
+        .then((res) => {
+          if (res) {
+            // console.log("почта пользователя =====>", res.data.email);
 
-          // авторизуем пользователя
-          setLoggedIn(true);
+            // const email = { email: res.data.email }; //это для того, чтобы вытащить из айпи данные и вставить имейл затем в шапку профиля
 
-          // setUserData(userData);
+            // авторизуем пользователя
+            setLoggedIn(true);
 
-          navigate("/", { replace: true });
-        }
-      });
+            setUserEmail(res.data.email);
+
+            navigate("/", { replace: true });
+          }
+        })
+        .catch((err) => {
+          console.error("Ошибка при получении данных:", err);
+        });
     }
   };
+
+  console.log("inside App ======>", userEmail);
 
   useEffect(() => {
     // настало время проверить токен
@@ -55,8 +62,8 @@ function App() {
           <ProtectedRouteElement
             path="/"
             loggedIn={loggedIn}
-            element={Core}
-          ></ProtectedRouteElement>
+            element={<Core userEmail={userEmail} />}
+          />
         }
       ></Route>
       <Route path="/sign-up" element={<Register />}></Route>
