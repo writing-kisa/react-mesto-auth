@@ -22,7 +22,6 @@ function App() {
     // если у пользователя есть токен в localStorage,
     // эта функция проверит валидность токена
     const jwt = localStorage.getItem("jwt");
-
     if (jwt) {
       // console.log("jwt это ====>", jwt);
       // проверим токен
@@ -30,9 +29,7 @@ function App() {
         .then((res) => {
           if (res) {
             // console.log("почта пользователя =====>", res.data.email);
-
             // const email = { email: res.data.email }; //это для того, чтобы вытащить из айпи данные и вставить имейл затем в шапку профиля
-
             // авторизуем пользователя
             setLoggedIn(true);
 
@@ -54,9 +51,8 @@ function App() {
     tokenCheck();
   }, []);
 
-
-  function signOut(){
-    localStorage.removeItem('jwt');
+  function signOut() {
+    localStorage.removeItem("jwt");
     navigate("/sign-in", { replace: true });
   }
 

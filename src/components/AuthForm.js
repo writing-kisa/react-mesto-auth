@@ -1,7 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import CorrectAuth from "./CorrectAuth";
-// import ErrorAuth from "./ErrorAuth";
 
 function AuthForm(props) {
 
@@ -44,8 +42,6 @@ function AuthForm(props) {
           </Link>
         </div>
       </div>
-      {/* <CorrectAuth /> */}
-      {/* <ErrorAuth /> */}
     </>
   );
 }

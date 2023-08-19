@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import AuthForm from "./AuthForm";
 import Header from "./Header";
 import * as UserAuth from "./UserAuth";
+import InfoTooltip from "./InfoTooltip";
 
 function Register() {
   const [userEmail, setUserEmail] = useState("");
@@ -10,6 +11,9 @@ function Register() {
 
   // console.log(userEmail); //данные приходят
   // console.log(password); //данные приходят
+
+  const [isSuccessful, setIsSuccessful] = useState(false); //стейт-переменная для определения успешности авторизации
+  const [isTooltipOpen, setIsTooltipOpen] = useState(false); ////стейт-переменная для открытия модального окна
 
   const navigate = useNavigate();
 
@@ -30,12 +34,24 @@ function Register() {
 
     UserAuth.register(userEmail, password)
       .then((res) => {
+        setIsTooltipOpen(true); //открываем модальное окно ВСЕ ПРОШЛО УСПЕШНО работает корректно благодаря установлению таймера
+        setIsSuccessful(true);
+        setTimeout(() => {
         navigate("/sign-in", { replace: true });
+      }, 2000); // сделаю задержку, чтобы увидеть модальное окно об успешной регистрации
       })
       .catch((err) => {
+        setIsTooltipOpen(true); //открываем модальное окно ЧТО-ТО ПОШЛО НЕ ТАК.... – РАБОТАЕТ КОРРЕКТНО
+        setIsSuccessful(false);
         console.log(err);
       });
   }
+
+  console.log(
+    "isTooltipOpen, isSuccessful это ====>",
+    isTooltipOpen,
+    isSuccessful
+  ); //всегда false!
 
   return (
     <>
@@ -53,6 +69,12 @@ function Register() {
         handleChange={handleChange}
         onSubmit={handleSubmit}
       />
+      {isTooltipOpen && (
+        <InfoTooltip
+          isSuccessful={isSuccessful}
+          onClose={() => setIsTooltipOpen(false)} // функция для закрытия модального окна
+        />
+      )}
     </>
   );
 }
