@@ -3,14 +3,10 @@ import AuthForm from "./AuthForm";
 import Header from "./Header";
 import * as UserAuth from "./UserAuth";
 import { useNavigate } from "react-router-dom";
-import InfoTooltip from "./InfoTooltip";
 
 function Login(props) {
   const [userEmail, setUserEmail] = useState("");
   const [password, setPassword] = useState("");
-
-  const [isSuccessful, setIsSuccessful] = useState(false); //стейт-переменная для определения успешности авторизации
-  const [isTooltipOpen, setIsTooltipOpen] = useState(false); ////стейт-переменная для открытия модального окна
 
   // console.log(userEmail); //данные приходят
   // console.log(password); //данные приходят
@@ -43,13 +39,9 @@ function Login(props) {
         }
       })
       .catch((err) => {
-        setIsTooltipOpen(true); //открываем модальное окно ЧТО-ТО ПОШЛО НЕ ТАК
-        setIsSuccessful(false);
         console.log(err);
       });
   }
-
-  console.log(isTooltipOpen, isSuccessful);
 
   return (
     <>
@@ -65,12 +57,6 @@ function Login(props) {
         handleChange={handleChange}
         onSubmit={handleSubmit}
       />
-      {isTooltipOpen && (
-        <InfoTooltip
-          isSuccessful={isSuccessful}
-          onClose={() => setIsTooltipOpen(false)} // функция для закрытия модального окна
-        />
-      )}
     </>
   );
 }
