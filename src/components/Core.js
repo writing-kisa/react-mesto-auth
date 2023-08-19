@@ -144,7 +144,7 @@ function Core(props) {
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
-      <Header buttonText="Выйти" email={props.userEmail} />
+      <Header buttonText="Выйти" email={props.userEmail} onClick={props.onClick} />
       <Main
         onEditName={handleEditProfileClick}
         onAddPlace={handleAddPlaceClick}

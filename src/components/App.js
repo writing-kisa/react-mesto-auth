@@ -54,6 +54,12 @@ function App() {
     tokenCheck();
   }, []);
 
+
+  function signOut(){
+    localStorage.removeItem('jwt');
+    navigate("/sign-in", { replace: true });
+  }
+
   return (
     <Routes>
       <Route
@@ -64,6 +70,7 @@ function App() {
             loggedIn={loggedIn}
             component={Core}
             userEmail={userEmail}
+            onClick={signOut}
           />
         }
       />

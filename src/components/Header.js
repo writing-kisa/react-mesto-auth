@@ -12,7 +12,7 @@ function Header(props) {
         <Link to={`/${props.path}`} className="header__link">
           {props.linkText}
         </Link>
-        <button className="header__button">
+        <button className="header__button" onClick={props.onClick}>
           {props.buttonText}
         </button>
       </div>
