@@ -8,7 +8,6 @@ function AuthForm(props) {
   // console.log(props.onSubmit);
 
   return (
-    <>
       <div className="authform">
         <p className="authform__title">{props.title}</p>
         <form className="authform__form" onSubmit={props.onSubmit}>
@@ -42,7 +41,6 @@ function AuthForm(props) {
           </Link>
         </div>
       </div>
-    </>
   );
 }
 

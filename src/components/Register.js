@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AuthForm from "./AuthForm";
 import Header from "./Header";
-import * as UserAuth from "./UserAuth";
+import * as UserAuth from "../utils/UserAuth";
 import InfoTooltip from "./InfoTooltip";
 
 function Register() {
@@ -37,8 +37,8 @@ function Register() {
         setIsTooltipOpen(true); //открываем модальное окно ВСЕ ПРОШЛО УСПЕШНО работает корректно благодаря установлению таймера
         setIsSuccessful(true);
         setTimeout(() => {
-        navigate("/sign-in", { replace: true });
-      }, 1500); // сделаю задержку, чтобы увидеть модальное окно об успешной регистрации
+          navigate("/sign-in", { replace: true });
+        }, 1500); // сделаю задержку, чтобы увидеть модальное окно об успешной регистрации
       })
       .catch((err) => {
         setIsTooltipOpen(true); //открываем модальное окно ЧТО-ТО ПОШЛО НЕ ТАК.... – РАБОТАЕТ КОРРЕКТНО

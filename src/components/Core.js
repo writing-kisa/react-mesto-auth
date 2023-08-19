@@ -32,7 +32,7 @@ function Core(props) {
     link: "",
   });
 
-  const [currentUser, setCurrentUser] = React.useState(""); //карент юзер используем как значение контекста
+  const [currentUser, setCurrentUser] = React.useState({}); //карент юзер используем как значение контекста
 
   useEffect(() => {
     api

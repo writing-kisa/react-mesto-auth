@@ -5,7 +5,7 @@ import Core from "./Core";
 import Register from "./Register";
 import Login from "./Login";
 import ProtectedRouteElement from "./ProtectedRoute";
-import * as UserAuth from "./UserAuth";
+import * as UserAuth from "../utils/UserAuth";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);

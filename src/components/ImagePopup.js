@@ -4,7 +4,6 @@ function ImagePopup(props) {
   // console.log(props.card.link);
   // console.log(props.card.name);
   return (
-    <>
       <div
         id="full-size-popup"
         className={`popup popup_type_photo-background ${
@@ -29,7 +28,6 @@ function ImagePopup(props) {
           ></button>
         </figure>
       </div>
-    </>
   );
 }
 

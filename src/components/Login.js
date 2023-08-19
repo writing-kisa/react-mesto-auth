@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import AuthForm from "./AuthForm";
 import Header from "./Header";
-import * as UserAuth from "./UserAuth";
+import * as UserAuth from "../utils/UserAuth";
 import { useNavigate } from "react-router-dom";
 
 function Login(props) {
