@@ -1,0 +1,12 @@
+.header__button {
+  font-size: 18px;
+  font-weight: 400;
+  text-decoration: none;
+  color: rgba(169, 169, 169, 1);
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  line-height: 1.21;
+  max-height: 22px;
+}
