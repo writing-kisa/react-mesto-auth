@@ -54,7 +54,6 @@ function Core(props) {
         setCards((state) =>
           state.map((c) => (c._id === card._id ? newCard : c))
         );
-        // console.log("inside changeLikeCardStatus =======>", isLiked);
       })
       .catch((err) => console.log("ошибка в карточках по лайкам", err));
   }
@@ -113,11 +112,9 @@ function Core(props) {
   }
 
   function handleUpdateAvatar(user) {
-    // console.log('inside handleUpdateAvatar', user)
     api
       .changeUserAvatar(user.avatar)
       .then((res) => {
-        // console.log("inside api.changeUserAvatar ===>", res);
         setCurrentUser(res);
         closeAllPopups();
       })
@@ -127,13 +124,9 @@ function Core(props) {
   }
 
   function handleAddPlaceSubmit(card) {
-    //здесь отправляем новую карточку на сервер
-    // console.log("card это ====>", card) //это объект, который принимает в себя инпуты: нэйм и линк
-
     api
       .addCard(card)
       .then((res) => {
-        // console.log("res это ====>", res)
         setCards([res, ...cards]);
         closeAllPopups();
       })

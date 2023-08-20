@@ -12,7 +12,6 @@ function Card(props) {
     isLiked && "gallery__like-button_able"
   }`;
 
-  // console.log('внутри card ====>', cardLikeButtonClassName);
 
   function handleClick() {
     //эта функция должна открывать попап с фотографией

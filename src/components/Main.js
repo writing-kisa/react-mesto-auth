@@ -4,10 +4,7 @@ import Card from "./Card.js";
 import { CurrentUserContext } from "../contexts/CurrentUserContext.js";
 
 function Main(props) {
-  const currentUser = React.useContext(CurrentUserContext); //подписываемся на контекст с помощью хука, который используется в функциональных компонентах
-  //userContext = объект текущего пользователя, полученный из контекста
-
-  // console.log("in main!!! ===>", currentUser);
+  const currentUser = React.useContext(CurrentUserContext); 
 
   return (
     <main className="main">

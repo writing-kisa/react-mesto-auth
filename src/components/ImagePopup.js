@@ -1,8 +1,7 @@
 import React from "react";
 
 function ImagePopup(props) {
-  // console.log(props.card.link);
-  // console.log(props.card.name);
+
   return (
       <div
         id="full-size-popup"

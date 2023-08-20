@@ -3,10 +3,6 @@ import { Link } from "react-router-dom";
 
 function AuthForm(props) {
 
-  // console.log(props.userEmail);
-  // console.log(props.password);
-  // console.log(props.onSubmit);
-
   return (
       <div className="authform">
         <p className="authform__title">{props.title}</p>

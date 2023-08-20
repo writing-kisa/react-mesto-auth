@@ -9,9 +9,6 @@ function Register() {
   const [userEmail, setUserEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  // console.log(userEmail); //данные приходят
-  // console.log(password); //данные приходят
-
   const [isSuccessful, setIsSuccessful] = useState(false); //стейт-переменная для определения успешности авторизации
   const [isTooltipOpen, setIsTooltipOpen] = useState(false); ////стейт-переменная для открытия модального окна
 
@@ -29,8 +26,6 @@ function Register() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log("inside handleSubmit ====>", userEmail);
-    console.log("inside handleSubmit ====>", password);
 
     UserAuth.register(userEmail, password)
       .then((res) => {
@@ -43,15 +38,8 @@ function Register() {
       .catch((err) => {
         setIsTooltipOpen(true); //открываем модальное окно ЧТО-ТО ПОШЛО НЕ ТАК.... – РАБОТАЕТ КОРРЕКТНО
         setIsSuccessful(false);
-        console.log(err);
       });
   }
-
-  console.log(
-    "isTooltipOpen, isSuccessful это ====>",
-    isTooltipOpen,
-    isSuccessful
-  ); //всегда false!
 
   return (
     <>

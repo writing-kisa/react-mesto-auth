@@ -44,8 +44,6 @@ function App() {
     }
   };
 
-  console.log("inside App ======>", userEmail);
-
   useEffect(() => {
     // настало время проверить токен
     tokenCheck();
