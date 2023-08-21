@@ -25,8 +25,8 @@ function Login(props) {
     UserAuth.authorize(userEmail, password)
       .then((data) => {
         if (data.token) {
-          setUserEmail(userEmail);
-          setPassword("");
+          // setUserEmail("");
+          // setPassword("");
           props.handleLogin();
           navigate("/", { replace: true });
         }
