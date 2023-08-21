@@ -9,14 +9,13 @@ import * as UserAuth from "../utils/UserAuth";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
-
-  const handleLogin = () => {
-    setLoggedIn(true);
-  };
-
+  const [userEmail, setUserEmail] = useState("");
   const navigate = useNavigate();
 
-  const [userEmail, setUserEmail] = useState("");
+  const handleLogin = (email) => {
+    setLoggedIn(true);
+    setUserEmail(email);
+  };
 
   const tokenCheck = () => {
     // если у пользователя есть токен в localStorage,

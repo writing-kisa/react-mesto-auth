@@ -12,7 +12,6 @@ import AddPlacePopup from "./AddPlacePopup.js";
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
 
 function Core(props) {
-
   // console.log("Props in ProtectedRouteElement ====>", props.userEmail);
 
   // const { userEmail } = props.userEmail;
@@ -20,12 +19,10 @@ function Core(props) {
   // console.log("userEmail внутри Core", userEmail);
 
   const [cards, setCards] = React.useState([]);
-  const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(
-    false
-  );
-  const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = React.useState(
-    false
-  );
+  const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] =
+    React.useState(false);
+  const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] =
+    React.useState(false);
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
   const [selectedCard, setSelectedCard] = React.useState({
     name: "",
@@ -137,7 +134,11 @@ function Core(props) {
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
-      <Header buttonText="Выйти" email={props.userEmail} onClick={props.onClick} />
+      <Header
+        buttonText="Выйти"
+        email={props.userEmail}
+        onClick={props.onClick}
+      />
       <Main
         onEditName={handleEditProfileClick}
         onAddPlace={handleAddPlaceClick}
